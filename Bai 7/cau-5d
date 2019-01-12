@@ -1,0 +1,11 @@
+#!/bin/bash
+read -p "Nhap ten file: " name
+
+c=$(ls | grep -v ^"d" | grep $name | wc -l)
+if [ $c -gt 0 ] 
+then 
+	echo 'File ton tai trong thu muc'
+else 
+	echo 'File khong ton tai'
+fi
+exit 0

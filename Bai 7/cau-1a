@@ -1,0 +1,10 @@
+#! /bin/bash
+read -r n
+if [ $n -gt 0 ] 
+then 
+	echo 'so vua nhap la so duong'
+else
+	echo 'so vua nhap la so am'
+fi
+exit 0
+

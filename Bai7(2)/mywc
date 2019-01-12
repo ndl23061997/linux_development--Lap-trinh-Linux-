@@ -1,0 +1,45 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]
+then
+	echo Khong du tham so
+	exit 1
+fi
+agru=$*
+file=${agru##*" "}
+
+if [ $( echo $file | cut -c1 ) = - ]
+then
+	echo "File khong hop le"
+fi
+
+for value in $* 
+do
+	if [ $value = -l ]
+	then
+		sodong=0
+		while read line
+		do
+			sodong=$(( $sodong + 1 ))
+		done < $file
+
+		echo So dong cua file la : $sodong
+	fi
+	
+	if [ $value = -w ]
+	then
+		sotu=0
+		while read line 
+		do
+			for wd in $line
+			do
+				sotu=$(( $sotu + 1 ))
+			done
+		done < $file
+
+		echo So tu cua file la : $sotu
+	fi
+done
+
+exit 0
+

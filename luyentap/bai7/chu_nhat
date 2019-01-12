@@ -1,0 +1,15 @@
+#!/bin/bash
+kichthuoc=$1
+
+veHCN() {
+	for ((i=1;i<=kichthuoc;i++))
+	do
+		text=\*$text
+	done
+	for ((i=1;i<=kichthuoc;i++ ))
+	do
+		echo "$text"
+	done
+}
+
+veHCN

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+ls -l /etc > tmp_cau6
+i=0
+if ! test -d ~/myetc 
+then
+	mkdir ~/myetc
+fi
+while read line 
+do 
+	if [ $i -gt 0 ]
+	then
+		filename=${line##*" "}
+		if [ $( echo $line | cut -c1) = - ]
+		then
+			if [ $( echo $line | cut -c2 ) = r -a $( echo $line | cut -c4 ) = x ]
+			then
+				cp /etc/$filename ~/myetc/$filename.txt
+			fi 
+		fi
+	fi
+	i=$(( $i + 1 ))
+done < tmp_cau6

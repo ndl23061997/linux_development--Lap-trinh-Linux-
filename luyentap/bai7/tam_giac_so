@@ -1,0 +1,18 @@
+#!/bin/bash
+kichthuoc=$1
+
+veTamGiacSo() {
+	count=1
+	for ((i=1;i<=kichthuoc;i++ ))
+	do
+		for((j=1;j<=i;j++))
+		do
+			echo -n $count ''
+			count=$((count+1))
+		done
+		echo
+	done
+}
+
+veTamGiacSo
+exit 0

@@ -1,0 +1,29 @@
+#!/bin/bash
+echo " " > ds_sinhvien_1
+i=0
+while read line
+do
+	if [ $i -gt 0 ]
+	then
+		line=$( echo $line | tr -s ":" )
+		STT=$( echo $line | cut -d':' -f1 ) 
+		HT=$( echo $line | cut -d':' -f2 )
+		NS=$( echo $line | cut -d':' -f3 )
+		QQ=$( echo $line | cut -d':' -f4 )
+		DTS=$( echo $line | cut -d':' -f5 )
+		echo -n "STT : " $STT >> ds_sinhvien_1
+		echo >> ds_sinhvien_1
+		echo -n "Ho va ten : " $HT >> ds_sinhvien_1
+		echo >> ds_sinhvien_1
+		echo -n "Ngay sinh : " $NS >> ds_sinhvien_1
+		echo >> ds_sinhvien_1
+		echo -n "Que quan : " $QQ >> ds_sinhvien_1
+		echo >> ds_sinhvien_1
+		echo -n "Diem TS : " $STT >> ds_sinhvien_1
+		echo >> ds_sinhvien_1
+	else
+		i=$(($i+1))
+	fi
+done < ds_sinhvien 
+
+exit 0;

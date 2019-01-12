@@ -1,0 +1,21 @@
+#!/bin/bash
+count=0
+
+while read -p "Nhap mat khau : " password
+do
+	if [ $count -lt 5 ] 
+	then 
+		if [ $password = long97 ] 
+		then
+			echo Chuc mung ban
+			break
+		else
+			echo Mat khau khong chinh xac
+		fi
+	else
+		echo Khoa tai khoan
+		break
+	fi
+	
+	count=$(( $count + 1  ))
+done

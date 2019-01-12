@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ $# -lt 1 ] 
+then
+	echo Khong co tham so dau vao
+	exit 1
+fi
+
+n=$1
+giaithua=1
+for (( i=1; i <= $n ; i++  ))
+do
+	giaithua=$(( $giaithua * i ))
+done
+
+echo Giai thua cua $n la : $giaithua
+
+exit 0

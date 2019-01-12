@@ -1,0 +1,33 @@
+#! /bin/bash
+read -p "Nhap so thu nhat: " a
+read -p "Nhap so thu hai: " b
+read -p "Nhap so thu ba: " c
+
+if [ $a -gt $b -a $a -gt $c ]
+then 
+	max="So thu nhat"
+elif [ $a -lt $b -a $a -lt $c ] 
+then
+	min="So thu nhat"
+fi
+
+if [ $b -gt $a -a $b -gt $c ]
+then 
+        max="So thu hai"
+elif [ $b -lt $a -a $b -lt $c ]
+then   
+        min="So thu hai"
+fi
+
+if [ $c -gt $a -a $c -gt $b ]
+then 
+        max="So thu ba"
+elif [ $c -lt $a -a $c -lt $b ]   
+then
+        min="So thu ba"
+fi
+
+echo "So lon nhat la " $max
+echo "So be nhat la " $min
+
+exit 0

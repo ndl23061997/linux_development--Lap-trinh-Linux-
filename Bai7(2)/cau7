@@ -1,0 +1,11 @@
+#!/bin/bash
+
+new_path=${PATH//:/" "}
+#echo $new_path
+
+for value in $new_path
+do
+	echo $value
+done
+
+exit 0;

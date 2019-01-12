@@ -1,0 +1,16 @@
+#!/bin/bash
+read -p "Nhap ten chuoi " c
+read -p "Nhap duong dan " path
+
+if [ -e $path ] 
+then 
+	tt=$(cat $path | grep c | wc -l)
+	if [ $tt -eq 0 ]
+	then 
+		echo "Khong co chuoi trung trong file"
+	else
+		echo $tt
+	fi
+else 
+	echo "File khong ton tai"
+fi

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if test -e ./ten_tai_khoan
+then 
+	rm ./ten_tai_khoan
+fi
+
+if test -e ./nha_cung_cap_dich_vu
+then
+	rm ./nha_cung_cap_dich_vu
+fi
+
+while read line
+do
+	echo ${line%%@*} >> ten_tai_khoan
+	domain=${line##*@}
+	echo ${domain%%.*} >> nha_cung_cap_dich_vu
+done < ./danh_sach_email
+#thong ke
+
+
+exit 0

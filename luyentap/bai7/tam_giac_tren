@@ -1,0 +1,18 @@
+#!/bin/bash
+
+veTamGiacTren() {
+	kichthuoc=$2
+	for ((i=1; i<=kichthuoc; i++ ))
+	do
+		for(( j=0; j<=kichthuoc-i; j++))
+		do
+			echo -n \*
+		done
+		echo
+	done
+}
+
+veTamGiacTren 1 $1
+
+exit 0
+

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [ $# -lt 2 ]
+then
+	echo Khong co tham so thu hai
+	exit 2
+fi
+
+
+if ! test -e $2 
+then 
+	echo  File khong ton tai
+	exit 3
+fi
+
+if [ $# -eq 0 ]
+then
+        tail -1 $2
+        exit 1
+fi
+
+n=$1
+count=$( wc -l $2 | cut -d" " -f1 )
+if [ $n -lt 0 -o $n -gt $count ] 
+then 
+	echo Tham so nhap vao khong hop le
+else 
+	head -n $n $2 | tail -1
+fi
+exit 0

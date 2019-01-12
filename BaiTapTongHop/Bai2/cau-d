@@ -1,0 +1,15 @@
+#!/bin/bash
+while read line
+do
+		line=$( echo "${line,,}" )
+		line=$( echo $line | tr -d ' ' )
+		line=$( echo $line | tr -s ":" )
+		user=$( echo $line | cut -d':' -f1)
+		pass=$( echo $line | cut -d ':' -f2)
+
+		groupdel $user 1> /dev/null 2> /dev/null
+		userdel -rf $user 1> /dev/null 2> /dev/null 
+		echo "a\na\n\n\n\n\n\n" |  adduser $user  1> /dev/null 2> /dev/null && echo -e  "$pass\n$pass" | passwd $user 1> /dev/null && echo Them thanh cong user \: $user 
+done < ds_sinhvien_2
+
+exit 0;

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+tinhTong() {
+	tong=0
+	for ts in $* 
+	do
+		tong=$((tong+ts))
+	done
+	echo Tong cac tham so da nhap la : $tong
+}
+tinhTong $*
+exit 0

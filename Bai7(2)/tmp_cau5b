@@ -1,0 +1,11 @@
+total 1368
+drwxr-xr-x  3 root root     4096 Thg 7 25 12:22 acpi
+-rw-r--r--  1 root root     3028 Thg 7 25 12:17 adduser.conf
+drwxr-xr-x  2 root root    12288 Thg 1 20 00:21 alternatives
+-rw-r--r--  1 root root      401 Thg 5 29  2017 anacrontab
+drwxr-xr-x  3 root root     4096 Thg 1 25 22:01 apache2
+-rw-r--r--  1 root root      433 Thg 1  2  2017 apg.conf
+drwxr-xr-x  6 root root     4096 Thg 7 25 12:20 apm
+drwxr-xr-x  3 root root     4096 Thg 1 20 00:18 apparmor
+drwxr-xr-x  8 root root     4096 Thg 1 23 00:35 apparmor.d
+drwxr-xr-x  5 root root     4096 Thg 1 20 00:19 apport

@@ -1,0 +1,12 @@
+#!/bin/bash
+while read line
+do
+	line=$( echo "${line,,}"}
+	line=$( echo $line | tr -d ' ' )
+	username=$( echo $line | cut -d':' -f1)
+	password=$( echo $line | cut -d ':' -f2)
+	adduser $username && echo -e "$password\n$password" | passwd $username 1> /dev/null	
+
+done < ds_sinhvien_2
+
+exit 0;

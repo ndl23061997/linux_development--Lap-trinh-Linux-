@@ -1,0 +1,6 @@
+#! /bin/bash
+n="$12"
+m="$13"
+echo "Ket qua la: " $(( m + n))
+exit 0
+

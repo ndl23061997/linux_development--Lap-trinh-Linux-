@@ -1,0 +1,10 @@
+#!/bin/bash
+tong=0
+
+for value in $*
+do 
+	tong=$(( tong + value ))
+done
+
+echo Tong cac so la: $tong
+exit 0;

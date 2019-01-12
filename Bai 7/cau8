@@ -1,0 +1,18 @@
+#!/bin/bash
+cp /etc/passwd ~/passwd_copy
+
+if [ $# -eq 0 ]
+then
+	tail -1 ~/passwd_copy
+	exit 0
+fi
+
+n=$1
+count=$( wc -l ~/passwd_copy | cut -d" " -f1 )
+if [ $n -lt 0 -o $n -gt $count ] 
+then 
+	echo Tham so nhap vao khong hop le
+else 
+	head -n $n ~/passwd_copy | tail -1
+fi
+exit 0

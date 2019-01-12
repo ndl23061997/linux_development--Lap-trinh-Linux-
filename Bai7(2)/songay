@@ -1,0 +1,68 @@
+#!/bin/bash
+if [ $# -lt 2 ]
+then
+	echo Tham so khong hop le
+	exit 1
+fi 
+
+nhuan=0
+month=$1
+year=$2
+
+if [ $month -lt 1 -o $month -gt 12 ]
+then
+	echo Thang khong hop le
+	exit 1
+fi
+
+rs1=$(( $year % 4 ))
+
+if [ $rs1 -eq 0 ] 
+then
+	rs2=$(( $year % 100 ))
+	if [ $rs2 -eq  0 ] 
+	then 
+		rs3=$(( $year%400  ))
+		if [ $rs3 -eq  0 ]
+		then
+			nhuan=1
+		fi
+	else 
+		nhuan=1
+	fi
+fi
+
+if [ $nhuan -eq 1 ] 
+then
+#	Nam nhuan
+	if [ $month -eq 1 -o $month -eq 3 -o $month -eq 5 -o $month -eq 7 -o $month -eq 8 -o $month -eq 10 -o $month -eq 12 ]
+	then
+		echo Thang $month cua nam $year co 31 ngay
+		exit 0;	
+	fi
+	
+	if [ $month -eq 4 -o $month -eq  6 -o $month -eq 9 -o $month -eq 11 ] 
+	then
+		echo Thang $month cua nam $year co 30 ngay
+		exit 0;
+	fi
+
+	echo Thang $month cua nam $year co 29 ngay
+else 
+echo Nam khong nhuan
+	#       Nam Khong nhuan
+	if [ $month -eq 1 -o $month -eq 3 -o $month -eq 5 -o $month -eq 7 -o $month -eq 8 -o $month -eq 10 -o $month -eq 12 ]        
+        then
+                echo Thang $month cua nam $year co 31 ngay
+                exit 0;
+        fi
+
+	if [ $month -eq 4 -o $month -eq  6 -o $month -eq 9 -o $month -eq 11 ]           
+        then
+                echo Thang $month cua nam $year co 30 ngay
+                exit 0;
+        fi
+
+        echo Thang $month cua nam $year co 28 ngay
+
+fi

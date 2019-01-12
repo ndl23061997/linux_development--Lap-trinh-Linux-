@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ $# -lt 2 ] 
+then 
+	echo Khong du tham so
+	exit 1
+fi
+
+height=$1
+width=$2
+
+if [ $height -lt 1 -o $width -lt 1 ] 
+then
+	echo Kich thuoc khong hop le
+	exit 2
+fi
+
+for (( i = 1 ; i <= height ; i++ ))
+do
+	for (( j = 1 ; j <= width ; j++)) 
+	do 
+		echo -n "*"
+	done
+	echo
+done
+
+exit 0

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ $# -lt 1 ] 
+then 
+ echo Hello!
+elif [ $1 = "sang" ] 
+then 
+	echo Good morning!
+elif [ $1 = "toi" ]
+then 
+	echo Good night!
+elif [ $1 = "chieu" ] 
+then
+	echo Good afternoon!
+else
+	echo Hello!
+fi
+
+exit 0

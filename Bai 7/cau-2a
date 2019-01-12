@@ -1,0 +1,13 @@
+#! /bin/bash
+read -p 'nhap so thu nhat: ' n 
+read -p 'nhap so thu hai: ' m 
+if [ $n -gt $m ] 
+then 
+	echo 'So thu nhat lon hon so thu 2'
+elif [ $n -lt $m ]
+	echo 'So thu 2 lon hon so thu nhat'
+else 
+	echo 'Hai so bang nhau'
+fi
+exit 0
+

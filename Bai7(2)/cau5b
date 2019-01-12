@@ -1,0 +1,51 @@
+#!/bin/bash
+ls -l /etc | head -n 11 > tmp_cau5b
+
+i=0
+username=$( who am i | cut -d" " -f1 )
+groups=$( groups )
+
+#echo $username $groups
+
+while read line
+do
+
+	if [ $i -gt 0 -a $i -lt 11 ]
+	then
+		filename=${line##*" "}
+		d=$( echo $line | cut -c1 )
+		echo $filename
+		# Kiem tra la file hay thu muc
+		if [ $d = "d" ] 
+		then
+			echo -e "\t" Day la mot thu muc $filename
+		else
+			echo -e "\t" Day la 1 file $filename
+		fi
+		# Quyen doc file
+		if [ $( echo $line | cut -c2 ) = r ] 
+		then 
+			echo -e "\t" Ban co quyen doc file nay $filename
+		else 
+			echo -e "\t" Ban khong co quyen doc file nay $filename
+		fi		
+		# Quyen ghi
+		if [ $( echo $line | cut -c3 ) = w ] 
+		then
+			echo -e "\t" Ban co quen ghi file nay $filename
+		else 
+			echo -e "\t" Ban khong co quyen ghi file nay $filename
+		fi
+		# Kiem tra quyen so hu
+		if [ $( echo $line | cut -d" " -f3 ) = $username ]
+		then
+			echo -e "\t" Ban co quyen so huu $filename
+		else 
+			echo -e "\t" Ban khong co quyen so huu  $filename
+		fi
+
+		#
+	fi
+	i=$(( $i+1 ))  
+
+done < tmp_cau5b
